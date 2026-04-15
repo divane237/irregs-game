@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.logic import get_destination
-import random
-
+from app.logic import get_destination, get_random_code, get_cities
 
 app = FastAPI()
 
@@ -14,21 +12,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-
 @app.get("/")
 def root():
     return {"message": "UPS Game API running"}
-    
+
 @app.get("/random-code")
 def random_code():
-    return { "code": random.randint(0, 8000)}
+    return {"code": get_random_code()}
 
+@app.get("/cities")
+def cities():
+    return {"cities": get_cities()}
 
 @app.post("/check")
 def check_answer(code: int, answer: str):
-    correct = get_destination(code)
+    expected = get_destination(code)
     return {
-        "correct": correct.lower() == answer.lower(),
-        "expected": correct
+        "correct": expected.lower() == answer.lower(),
+        "expected": expected
     }
