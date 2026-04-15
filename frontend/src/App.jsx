@@ -39,8 +39,13 @@ function App() {
   
 
   return (
-    <div style={{textAlign: "center", marginTop: "50px"}}>
+    <>
+     <h1 className="text-5xl font-bold text-red-500">
+  Tailwind works!
+</h1>
+    <div style={{textAlign: "center", marginTop: "10px"}}>
      <h1>UPS Code Game</h1>
+    
 
       <h2>{code}</h2>
 
@@ -52,6 +57,7 @@ function App() {
       <h3>{result}</h3>
       <h3>Score: {score}</h3>
     </div>
+    </>
   );
 }
 
