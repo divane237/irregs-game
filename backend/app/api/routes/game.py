@@ -2,7 +2,7 @@ from fastapi import APIRouter, Body
 from app.schemas.game import (
     GameStartRequest, GameStartResponse,
     GameEndRequest, GameEndResponse,
-    CheckAnswerResponse
+    CheckAnswerResponse, CitiesResponse, RandomCodeResponse
 )
 
 from app.services.game_service import game_service
@@ -15,12 +15,12 @@ def start_game(request: GameStartRequest = Body(default=GameStartRequest())):
     """Start a new game session"""
     return game_service.start_game(request.player_name)
 
-@router.get("/random-code")
+@router.get("/random-code", response_model=RandomCodeResponse)
 def random_code():
     """Get a random postal code"""
     return {"code": get_random_code()}
 
-@router.get("/cities")
+@router.get("/cities", response_model=CitiesResponse)
 def cities():
     """Get list of cities"""
     return {"cities": get_cities()}
@@ -31,12 +31,14 @@ def check_answer(code: int, answer: str, game_id: str):
     expected = get_destination(code)
     is_correct = expected.lower() == answer.lower()
     
-    # Update game session
-    game_service.update_game_session(game_id, is_correct)
+     # Update game session and get status
+    game_status = game_service.update_game_session(game_id, is_correct)
     
     return {
         "correct": is_correct,
-        "expected": expected
+        "expected": expected,
+        "lives_remaining": game_status["lives_remaining"],  # ← NEW
+        "game_over": game_status["game_over"]              # ← NEW
     }
 
 @router.post("/end", response_model=GameEndResponse)

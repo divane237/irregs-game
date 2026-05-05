@@ -11,24 +11,28 @@ class GameService:
     def start_game(player_name: str = "Anonymous") -> dict:
         """Start a new game session"""
         game_id = str(uuid.uuid4())
+        print(f"{game_id}")
         game_sessions[game_id] = {
             "player_name": player_name,
             "start_time": time.time(),
             "score": 0,
-            "lives": 5,
+            "lives": 3,
             "questions_answered": 0
         }
-        print(f"✓ Game started: {game_id[:8]} for {player_name}")
+        print(f" Game started: {game_id[:8]} for {player_name}")
         return {
             "game_id": game_id,
             "start_time": game_sessions[game_id]["start_time"]
         }
     
     @staticmethod
-    def update_game_session(game_id: str, is_correct: bool) -> bool:
+    def update_game_session(game_id: str, is_correct: bool) -> dict:
         """Update game session after answer"""
         if game_id not in game_sessions:
-            return False
+            return  {
+                "lives_remaining": 0,
+                "game_over": True
+            }
         
         session = game_sessions[game_id]
         session["questions_answered"] += 1
@@ -37,9 +41,12 @@ class GameService:
             session["score"] += 1
         else:
             session["lives"] -= 1
-        
+            
         print(f"  Game {game_id[:8]}: Score={session['score']}, Lives={session['lives']}")
-        return True
+        return {
+            "lives_remaining": session["lives"],
+            "game_over": session["lives"] <= 0  # ← Backend decides
+        }
     
     @staticmethod
     def end_game(game_id: str) -> dict:
@@ -65,7 +72,7 @@ class GameService:
             "questions_answered": session["questions_answered"]
         }
         
-        print(f"✓ Game ended: {game_id[:8]}, Time={actual_time_elapsed}s, Score={session['score']}")
+        print(f"Game ended: {game_id[:8]}, Time={actual_time_elapsed}s, Score={session['score']}")
         
         # Clean up session
         del game_sessions[game_id]

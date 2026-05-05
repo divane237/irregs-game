@@ -1,5 +1,4 @@
 from pydantic import BaseModel, Field
-from typing import Optional
 
 # Request schemas
 class GameStartRequest(BaseModel):
@@ -22,3 +21,11 @@ class GameEndResponse(BaseModel):
 class CheckAnswerResponse(BaseModel):
     correct: bool
     expected: str
+    lives_remaining: int        # ← NEW
+    game_over: bool            # ← NEW
+    
+class CitiesResponse(BaseModel):
+    cities: list[str]
+
+class RandomCodeResponse(BaseModel):
+    code: int
