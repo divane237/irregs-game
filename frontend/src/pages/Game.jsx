@@ -14,7 +14,7 @@ function Game() {
   const [code, setCode] = useState(null)
   const [cities, setCities] = useState([])
   const [score, setScore] = useState(0)
-  const [lives, setLives] = useState(5)
+  const [lives, setLives] = useState(3)
   const [gameOver, setGameOver] = useState(false)
   
   // UI state

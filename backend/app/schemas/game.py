@@ -21,8 +21,8 @@ class GameEndResponse(BaseModel):
 class CheckAnswerResponse(BaseModel):
     correct: bool
     expected: str
-    lives_remaining: int        # ← NEW
-    game_over: bool            # ← NEW
+    lives_remaining: int        
+    game_over: bool           
     
 class CitiesResponse(BaseModel):
     cities: list[str]

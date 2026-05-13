@@ -15,7 +15,7 @@ function GameStats({ score, lives, timeElapsed }) {
         <p className="text-xs text-gray-500">Lives</p>
         <p className="text-xl font-bold text-red-600">
           {'❤️'.repeat(lives)}
-          {'🤍'.repeat(5 - lives)}
+          {'🤍'.repeat(3 - lives)}
         </p>
       </div>
 

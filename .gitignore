@@ -10,6 +10,7 @@ frontend/.next/
 
 # Env files
 .env
+POSTGRES_PASSWORD.txt
 
 # OS
 .DS_Store
