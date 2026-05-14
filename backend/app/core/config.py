@@ -4,7 +4,7 @@ from typing import List
 class Settings:
     # API Settings
     API_V1_STR: str = "/api/v1"
-    PROJECT_NAME: str = "UPS Code Game"
+    PROJECT_NAME: str = "IRREGS Code Game"
     
     # Database - Read from environment variable
     DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql://postgres:divane@localhost:5432/ups_game")

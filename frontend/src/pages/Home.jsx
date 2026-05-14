@@ -13,7 +13,7 @@ function Home() {
             Welcome to
           </p>
           <h1 className="text-5xl md:text-6xl font-bold text-blue-600 mb-4">
-            UPS CODE GAME
+            IRREGS CODE GAME
           </h1>
           <p className="text-lg text-gray-600">
             Guess the city based on postal codes!

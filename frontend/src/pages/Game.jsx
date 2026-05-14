@@ -179,7 +179,7 @@ function Game() {
       <div className="bg-white border border-gray-200 rounded-2xl p-10 w-full max-w-md text-center shadow-sm">
         
         <p className="text-xs font-mono font-bold tracking-widest uppercase text-gray-400 mb-6">
-          UPS Code Game
+          IRREGS Code Game
         </p>
 
         {/* Game Stats Component */}
