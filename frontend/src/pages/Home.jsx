@@ -28,14 +28,19 @@ function Home() {
           >
             Play Game
           </button>
-          
-          <button 
+
+          <button onClick={() => navigate('/leaderboard')} className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95">
+            🏆 Leaderboard
+          </button>
+
+
+          {/* <button 
             disabled
             className="bg-gray-100 border border-gray-200 text-gray-400 font-medium py-4 px-8 rounded-lg text-lg cursor-not-allowed"
           >
             Leaderboard (Coming Soon)
           </button>
-          
+           */}
           <button 
             disabled
             className="bg-gray-100 border border-gray-200 text-gray-400 font-medium py-4 px-8 rounded-lg text-lg cursor-not-allowed"

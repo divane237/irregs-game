@@ -57,6 +57,37 @@ class GameAPI {
     if (!response.ok) throw new Error("Failed to end game")
     return response.json()
   }
+
+
+   /**
+   * Save score to leaderboard
+   */
+   static async saveScore(playerName, score, timeElapsed, questionsAnswered) {
+    const response = await fetch(`${API_BASE}/leaderboard/save`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        player_name: playerName,
+        score: score,
+        time_elapsed: timeElapsed,
+        questions_answered: questionsAnswered
+      })
+    })
+    if (!response.ok) throw new Error("Failed to save score")
+    return response.json()
+  }
+
+
+  /**
+   * Get leaderboard
+   */
+  static async getLeaderboard(limit = 10) {
+    const response = await fetch(`${API_BASE}/leaderboard/top?limit=${limit}`)
+    if (!response.ok) throw new Error("Failed to get leaderboard")
+    return response.json()
+  }
+
+
 }
 
 export default GameAPI

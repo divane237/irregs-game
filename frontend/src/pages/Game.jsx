@@ -5,6 +5,7 @@ import { useGameTimer } from "../hooks/useGameTimer"
 import CartonBox from "../components/CartonBox"
 import GameStats from "../components/game/GameStats"
 import GameOver from "../components/game/GameOver"
+import LoadingGame from "../components/LoadingGame"
 
 function Game() {
   const navigate = useNavigate()
@@ -23,6 +24,7 @@ function Game() {
   const [visible, setVisible] = useState(true)
   const [disabled, setDisabled] = useState(false)
   const [serverTime, setServerTime] = useState(null)
+  const [loading, setLoading] = useState(true)
   
   // Timer (using custom hook)
   const { timeElapsed, resetTimer } = useGameTimer(!gameOver && !disabled)
@@ -33,6 +35,7 @@ function Game() {
   }, [])
 
   const initGame = async () => {
+    setLoading(true)
     try {
       // Fetch cities
       const citiesData = await GameAPI.getCities()
@@ -46,6 +49,8 @@ function Game() {
       await fetchNewCode()
     } catch (error) {
       console.error("Error initializing game:", error)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -101,6 +106,8 @@ function Game() {
     }
   }
 
+
+  // End game session 
   const endGameSession = async () => {
     if (!gameId) {
       setGameOver(true)
@@ -108,9 +115,16 @@ function Game() {
     }
 
     try {
-      const data = await GameAPI.endGame(gameId)
-      setServerTime(data.time_elapsed)
-      setGameOver(true)
+      // Get final stats from backedn
+      const data = await GameAPI.endGame(gameId);
+      setServerTime(data.time_elapsed);
+
+      // Save score to leaderboard
+      await GameAPI.saveScore("Anonymous", score, data.time_elapsed, data.questions_answered);
+      
+      console.log("Score saved to leaderboard");
+
+      setGameOver(true);
     } catch (error) {
       console.error("Error ending game:", error)
       setGameOver(true)
@@ -119,7 +133,7 @@ function Game() {
 
   const restartGame = () => {
     setScore(0)
-    setLives(5)
+    setLives(3)
     resetTimer()
     setServerTime(null)
     setGameOver(false)
@@ -141,6 +155,14 @@ function Game() {
       />
     )
   }
+
+  // Loading before game loads after a gameover
+  if (loading) {
+    return (
+      <LoadingGame />
+    )
+  }
+
 
   // Main Game Screen
   return (
