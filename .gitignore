@@ -1,16 +1,15 @@
 # Python
-backend/venv/
 __pycache__/
 *.pyc
-test.py
+backend/.env
+backend/*.db
 
 # Node
-frontend/node_modules/
-frontend/.next/
+node_modules/
+frontend/.env
+frontend/.env.local
+frontend/dist/
 
-# Env files
-.env
-POSTGRES_PASSWORD.txt
-
-# OS
-.DS_Store
+# IDE
+.vscode/
+.idea/

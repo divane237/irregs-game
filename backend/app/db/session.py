@@ -1,18 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from dotenv import load_dotenv
+from app.core.config import settings
 
-import os
+# Use DATABAE_URL from settings (Reads from environment)
 
-# Load environment variables from .env file
-load_dotenv()
+DATABASE_URL = settings.DATABASE_URL
 
-#Get connection string from .env file
-
-DATABASE_URL = os.getenv("DATABASE_URL")
-
-if DATABASE_URL is None:
-    raise ValueError("DATABASE_URL not found in environment variables!")
+engine = create_engine(DATABASE_URL)
 
 
 #Create engine for connection pool

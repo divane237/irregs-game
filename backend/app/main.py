@@ -4,6 +4,11 @@ from app.core.config import settings
 from app.api.routes import api_router
 from app.db.session import engine
 from app.models import Base
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
