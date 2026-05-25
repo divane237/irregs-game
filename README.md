@@ -108,6 +108,8 @@ irregs-game/
 └── utils/
 └── helpers.js        # Utility functions
 
+
+
 ### Design Patterns
 - **Service Layer Pattern** - Separation of business logic
 - **Repository Pattern** - Data access abstraction
