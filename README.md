@@ -65,50 +65,6 @@ A full-stack web application that challenges players to match German postal code
 
 ## Architecture
 
-### Project Structure
-
-irregs-game/
-├── backend/ 
-│   ├── app/
-│   │   ├── api/
-│   │   │   └── routes/          # API endpoints
-│   │   │       ├── game.py
-│   │   │       └── leaderboard.py
-│   │   ├── core/
-│   │   │   └── config.py        # Configuration
-│   │   ├── db/
-│   │   │   ├── base.py          # Database base
-│   │   │   └── session.py       # Session management
-│   │   ├── models/
-│   │   │   └── score.py         # SQLAlchemy models
-│   │   ├── schemas/
-│   │   │   ├── game.py          # Pydantic schemas
-│   │   │   └── score.py
-│   │   ├── services/
-│   │   │   ├── game_service.py  # Business logic
-│   │   │   └── score_service.py
-│   │   └── main.py              # Application entry
-│   └── requirements.txt
-│
-└── frontend/
-└── src/
-├── components/
-│   ├── CartonBox.jsx
-│   └── game/
-│       ├── GameStats.jsx
-│       └── GameOver.jsx
-├── hooks/
-│   └── useGameTimer.js   # Custom timer hook
-├── pages/
-│   ├── Home.jsx
-│   ├── Game.jsx
-│   └── Leaderboard.jsx
-├── services/
-│   └── api.js            # API client
-└── utils/
-└── helpers.js        # Utility functions
-
-
 
 ### Design Patterns
 - **Service Layer Pattern** - Separation of business logic
