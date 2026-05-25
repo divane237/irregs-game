@@ -1,47 +1,36 @@
-# 🎮 Irregs Game - German Postal Code Quiz
+# Irregs Game - German Postal Code Quiz
 
 A full-stack web application that challenges players to match German postal codes (Postleitzahlen) to their corresponding cities. Built with modern technologies and deployed to production.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-success)](https://irregs-game-frontend.onrender.com)
-[![Backend API](https://img.shields.io/badge/API-live-blue)](https://irregs-game.onrender.com/docs)
+(https://irregs-game-frontend.onrender.com)
+(https://irregs-game.onrender.com/docs)
 
-## 🌐 Live Demo
+## Live Demo
 
-**Play the game:** [https://irregs-game-frontend.onrender.com](https://irregs-game-frontend.onrender.com)
+** Learn:** [https://irregs-game-frontend.onrender.com](https://irregs-game-frontend.onrender.com)
 
 **API Documentation:** [https://irregs-game.onrender.com/docs](https://irregs-game.onrender.com/docs)
 
----
-
-## 📸 Screenshots
-
-### Game Interface
-![Game Screenshot](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Add+Your+Game+Screenshot)
-*Clean, intuitive interface with real-time score tracking*
-
-### Leaderboard
-![Leaderboard Screenshot](https://via.placeholder.com/800x400/9333EA/FFFFFF?text=Add+Your+Leaderboard+Screenshot)
-*Competitive ranking system with top performers*
 
 ---
 
-## ✨ Features
+## Features
 
-### 🎯 Core Gameplay
+### Core Gameplay
 - **5-life system** with visual heart indicators
 - **Real-time timer** tracking game duration
 - **Score tracking** with questions answered counter
 - **Instant feedback** on correct/incorrect answers
 - **Server-validated** game logic (no cheating!)
 
-### 🏆 Leaderboard System
+### Leaderboard System
 - **Persistent storage** in PostgreSQL database
 - **Smart ranking** algorithm (higher score, then faster time)
-- **Medal system** for top 3 players (🥇🥈🥉)
+- **Medal system** for top 3 players
 - **Total games counter**
 - **Auto-save** on game completion
 
-### 🎨 User Experience
+### User Experience
 - **Responsive design** (mobile & desktop)
 - **Loading states** for better UX
 - **Smooth animations** and transitions
@@ -50,7 +39,7 @@ A full-stack web application that challenges players to match German postal code
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Python 3.12**
@@ -74,12 +63,12 @@ A full-stack web application that challenges players to match German postal code
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### Project Structure
 
 irregs-game/
-├── backend/
+├── backend/ 
 │   ├── app/
 │   │   ├── api/
 │   │   │   └── routes/          # API endpoints
@@ -128,7 +117,7 @@ irregs-game/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Python 3.12+
@@ -186,7 +175,7 @@ Frontend will run at `http://localhost:5173`
 
 ---
 
-## 🧪 API Documentation
+## API Documentation
 
 Once the backend is running, visit:
 - **Interactive Docs:** `http://127.0.0.1:8000/docs`
@@ -211,7 +200,7 @@ GET    /api/v1/leaderboard/top      # Get top scores
 
 ---
 
-## 📊 Database Schema
+## Database Schema
 
 ### Scores Table
 ```sql
@@ -230,7 +219,7 @@ CREATE INDEX idx_scores_ranking ON scores(score DESC, time_elapsed ASC);
 
 ---
 
-## 🚢 Deployment
+## Deployment
 
 ### Backend (Render.com)
 ```bash
@@ -259,7 +248,7 @@ VITE_API_BASE_URL=https://irregs-game.onrender.com/api/v1
 
 ---
 
-## 🧩 Key Learnings
+## Key Learnings
 
 ### Backend Architecture
 - **Separation of Concerns:** Routes → Services → Models → Database
@@ -281,7 +270,7 @@ VITE_API_BASE_URL=https://irregs-game.onrender.com/api/v1
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 ### Planned Features
 - [ ] **User Authentication** - JWT-based login system
@@ -304,25 +293,8 @@ VITE_API_BASE_URL=https://irregs-game.onrender.com/api/v1
 
 ---
 
-## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 👨‍💻 Author
+## Author
 
 **Divane**
 - GitHub: [@divane237](https://github.com/divane237)
@@ -330,20 +302,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-## 🙏 Acknowledgments
-
-- German postal code data
-- FastAPI documentation
-- React community
-- Render.com for hosting
-
----
-
-## 📞 Contact & Feedback
-
-Have questions or suggestions? Feel free to:
-- Open an [issue](https://github.com/divane237/irregs-game/issues)
-- Try the [live demo](https://irregs-game-frontend.onrender.com)
-- Check out the [API docs](https://irregs-game.onrender.com/docs)
 
 ---
